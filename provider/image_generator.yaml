@@ -1,0 +1,41 @@
+identity:
+  author: "dify-plugin-developer"
+  name: "image_generator"
+  label:
+    en_US: "Image Generator"
+    zh_Hans: "图像生成器"
+    pt_BR: "Gerador de Imagens"
+    ja_JP: "画像生成器"
+  description:
+    en_US: "Generate images through third-party AI platform"
+    zh_Hans: "通过第三方AI平台生成图像"
+    pt_BR: "Gerar imagens por meio de plataforma AI de terceiros"
+    ja_JP: "サードパーティAIプラットフォームを通じて画像を生成します"
+  icon: "icon.svg"
+
+credentials_for_provider:
+  image_model:
+    label:
+      en_US: Image Model
+      zh_Hans: 图像模型
+    required: true
+    type: text-input
+  api_url:
+    label:
+      en_US: API URL
+      zh_Hans: API URL
+    required: true
+    type: text-input
+  api_key:
+    label:
+      en_US: API Key
+      zh_Hans: API Key
+    required: true
+    type: secret-input
+
+tools:
+  - tools/text_to_image.yaml
+  - tools/image_to_image.yaml
+extra:
+  python:
+    source: provider/image_generator.py

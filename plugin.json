@@ -1,0 +1,111 @@
+{
+  "name": "third-party-ai-image-generator",
+  "description": "通过第三方AI平台URL和API进行文生图、图生图的Dify插件",
+  "type": "text-to-image",
+  "version": "1.0.0",
+  "author": "Dify Plugin Developer",
+  "logo": "",
+  "homepage": "https://github.com/dify-plugins/third-party-ai-image-generator",
+  "license": "MIT",
+  "inputs": [
+    {
+      "name": "api_url",
+      "type": "string",
+      "required": true,
+      "default": "https://api.openai.com",
+      "description": "第三方AI平台的API URL，兼容OpenAI API格式"
+    },
+    {
+      "name": "api_key",
+      "type": "string",
+      "required": true,
+      "description": "第三方AI平台的API密钥"
+    },
+    {
+      "name": "model",
+      "type": "string",
+      "required": false,
+      "default": "dall-e-3",
+      "description": "使用的图像生成模型，如dall-e-3、dall-e-2等"
+    },
+    {
+      "name": "task_type",
+      "type": "string",
+      "required": true,
+      "default": "text-to-image",
+      "description": "任务类型：text-to-image（文生图）或 image-to-image（图生图）",
+      "options": ["text-to-image", "image-to-image"]
+    },
+    {
+      "name": "prompt",
+      "type": "string",
+      "required": true,
+      "description": "生成图像的提示词"
+    },
+    {
+      "name": "negative_prompt",
+      "type": "string",
+      "required": false,
+      "description": "负面提示词，用于排除不想要的元素"
+    },
+    {
+      "name": "image_url",
+      "type": "string",
+      "required": false,
+      "description": "图生图时的原始图像URL"
+    },
+    {
+      "name": "width",
+      "type": "integer",
+      "required": false,
+      "default": 512,
+      "description": "图像宽度"
+    },
+    {
+      "name": "height",
+      "type": "integer",
+      "required": false,
+      "default": 512,
+      "description": "图像高度"
+    },
+    {
+      "name": "steps",
+      "type": "integer",
+      "required": false,
+      "default": 20,
+      "description": "生成图像的步数"
+    },
+    {
+      "name": "cfg_scale",
+      "type": "number",
+      "required": false,
+      "default": 7.5,
+      "description": "提示词的引导强度"
+    },
+    {
+      "name": "seed",
+      "type": "integer",
+      "required": false,
+      "description": "随机种子，用于生成可复现的图像"
+    },
+    {
+      "name": "n",
+      "type": "integer",
+      "required": false,
+      "default": 1,
+      "description": "生成图像的数量，默认为1"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "image_url",
+      "type": "string",
+      "description": "生成的图像URL"
+    },
+    {
+      "name": "seed",
+      "type": "integer",
+      "description": "实际使用的随机种子"
+    }
+  ]
+}

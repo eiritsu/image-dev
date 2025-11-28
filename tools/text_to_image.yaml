@@ -1,0 +1,136 @@
+identity:
+  name: "text_to_image"
+  author: "dify-plugin-developer"
+  label:
+    en_US: "Text to Image"
+    zh_Hans: "文生图"
+    pt_BR: "Texto para Imagem"
+    ja_JP: "テキストから画像"
+description:
+  human:
+    en_US: "Generate images from text prompts through third-party AI platform"
+    zh_Hans: "通过第三方AI平台从文本提示生成图像"
+    pt_BR: "Gerar imagens a partir de prompts de texto por meio de plataforma AI de terceiros"
+    ja_JP: "サードパーティAIプラットフォームを通じてテキストプロンプトから画像を生成します"
+  llm: "Generate images from text prompts through third-party AI platform"
+parameters:
+  - name: "model"
+    type: "string"
+    required: false
+    default: ""
+    label:
+      en_US: "Model"
+      zh_Hans: "模型"
+      pt_BR: "Modelo"
+      ja_JP: "モデル"
+    human_description:
+      en_US: "The image generation model to use"
+      zh_Hans: "使用的图像生成模型"
+    form: "llm"
+  - name: "prompt"
+    type: "string"
+    required: true
+    label:
+      en_US: "Prompt"
+      zh_Hans: "提示词"
+      pt_BR: "Prompt"
+      ja_JP: "プロンプト"
+    human_description:
+      en_US: "The prompt for generating images"
+      zh_Hans: "生成图像的提示词"
+      pt_BR: "O prompt para gerar imagens"
+      ja_JP: "画像を生成するためのプロンプト"
+    llm_description: "The prompt for generating images"
+    form: "llm"
+  - name: "negative_prompt"
+    type: "string"
+    required: false
+    label:
+      en_US: "Negative Prompt"
+      zh_Hans: "负面提示词"
+      pt_BR: "Prompt Negativo"
+      ja_JP: "ネガティブプロンプト"
+    human_description:
+      en_US: "Negative prompt to exclude unwanted elements"
+      zh_Hans: "负面提示词，用于排除不想要的元素"
+    form: "llm"
+  - name: "width"
+    type: "number"
+    required: false
+    default: 512
+    label:
+      en_US: "Width"
+      zh_Hans: "宽度"
+      pt_BR: "Largura"
+      ja_JP: "幅"
+    human_description:
+      en_US: "The width of the generated image"
+      zh_Hans: "生成图像的宽度"
+    form: "llm"
+  - name: "height"
+    type: "number"
+    required: false
+    default: 512
+    label:
+      en_US: "Height"
+      zh_Hans: "高度"
+      pt_BR: "Altura"
+      ja_JP: "高さ"
+    human_description:
+      en_US: "The height of the generated image"
+      zh_Hans: "生成图像的高度"
+    form: "llm"
+  - name: "steps"
+    type: "number"
+    required: false
+    default: 20
+    label:
+      en_US: "Steps"
+      zh_Hans: "步数"
+      pt_BR: "Passos"
+      ja_JP: "ステップ数"
+    human_description:
+      en_US: "The number of steps for generating images"
+      zh_Hans: "生成图像的步数"
+    form: "llm"
+  - name: "cfg_scale"
+    type: "number"
+    required: false
+    default: 7.5
+    label:
+      en_US: "CFG Scale"
+      zh_Hans: "引导强度"
+      pt_BR: "Escala CFG"
+      ja_JP: "CFGスケール"
+    human_description:
+      en_US: "The guidance scale for the prompt"
+      zh_Hans: "提示词的引导强度"
+    form: "llm"
+  - name: "seed"
+    type: "number"
+    required: false
+    label:
+      en_US: "Seed"
+      zh_Hans: "随机种子"
+      pt_BR: "Semente"
+      ja_JP: "シード"
+    human_description:
+      en_US: "The random seed for generating reproducible images"
+      zh_Hans: "随机种子，用于生成可复现的图像"
+    form: "llm"
+  - name: "n"
+    type: "number"
+    required: false
+    default: 1
+    label:
+      en_US: "Number of Images"
+      zh_Hans: "图像数量"
+      pt_BR: "Número de Imagens"
+      ja_JP: "画像数"
+    human_description:
+      en_US: "The number of images to generate"
+      zh_Hans: "生成图像的数量"
+    form: "llm"
+extra:
+  python:
+    source: tools/text_to_image.py

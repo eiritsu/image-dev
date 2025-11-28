@@ -1,0 +1,53 @@
+version: 1.0.0
+
+type: plugin
+author: dify-plugin-developer
+name: third-party-ai-image-generator
+label:
+  en_US: Third Party AI Image Generator
+  ja_JP: サードパーティAI画像生成器
+  zh_Hans: 第三方AI图像生成器
+  pt_BR: Gerador de Imagens AI de Terceiros
+description:
+  en_US: Generate images through third-party AI platform URL and API
+  ja_JP: サードパーティAIプラットフォームのURLとAPIを通じて画像を生成します
+  zh_Hans: 通过第三方AI平台URL和API进行文生图、图生图的Dify插件
+  pt_BR: Gere imagens por meio da URL e API de plataforma AI de terceiros
+icon: icon.svg
+icon_dark: icon-dark.svg
+resource:
+  memory: 268435456
+  permission:
+    tool:
+      enabled: true
+    model:
+      enabled: true
+      llm: false
+      text_embedding: false
+      rerank: false
+      tts: false
+      speech2text: false
+      moderation: false
+    endpoint:
+      enabled: true
+    app:
+      enabled: true
+    storage:
+      enabled: true
+      size: 1048576
+plugins:
+  tools:
+    - provider/image_generator.yaml
+meta:
+  version: 1.0.0
+  arch:
+    - amd64
+    - arm64
+  runner:
+    language: python
+    version: "3.12"
+    entrypoint: main
+  minimum_dify_version: null
+created_at: 2025-11-27T05:57:09.658006751Z
+privacy: PRIVACY.md
+verified: false

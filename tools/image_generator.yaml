@@ -1,0 +1,180 @@
+identity:
+  name: "image_generator"
+  author: "dify-plugin-developer"
+  label:
+    en_US: "Image Generator"
+    zh_Hans: "图像生成器"
+    pt_BR: "Gerador de Imagens"
+    ja_JP: "画像生成器"
+description:
+  human:
+    en_US: "Generate images through third-party AI platform"
+    zh_Hans: "通过第三方AI平台生成图像"
+    pt_BR: "Gerar imagens por meio de plataforma AI de terceiros"
+    ja_JP: "サードパーティAIプラットフォームを通じて画像を生成します"
+  llm: "Generate images through third-party AI platform"
+parameters:
+  - name: "model"
+    type: "string"
+    required: false
+    default: ""
+    label:
+      en_US: "Model"
+      zh_Hans: "模型"
+      pt_BR: "Modelo"
+      ja_JP: "モデル"
+    human_description:
+      en_US: "The image generation model to use"
+      zh_Hans: "使用的图像生成模型"
+    form: "llm"
+  - name: "task_type"
+    type: "select"
+    required: true
+    default: "text-to-image"
+    label:
+      en_US: "Task Type"
+      zh_Hans: "任务类型"
+      pt_BR: "Tipo de Tarefa"
+      ja_JP: "タスクタイプ"
+    human_description:
+      en_US: "The type of image generation task"
+      zh_Hans: "图像生成任务的类型"
+      pt_BR: "O tipo de tarefa de geração de imagens"
+      ja_JP: "画像生成タスクのタイプ"
+    llm_description: "The type of image generation task, either text-to-image or image-to-image"
+    form: "llm"
+    options:
+      - label:
+          en_US: "Text to Image"
+          zh_Hans: "文生图"
+          pt_BR: "Texto para Imagem"
+          ja_JP: "テキストから画像"
+        value: "text-to-image"
+      - label:
+          en_US: "Image to Image"
+          zh_Hans: "图生图"
+          pt_BR: "Imagem para Imagem"
+          ja_JP: "画像から画像"
+        value: "image-to-image"
+  - name: "prompt"
+    type: "string"
+    required: true
+    label:
+      en_US: "Prompt"
+      zh_Hans: "提示词"
+      pt_BR: "Prompt"
+      ja_JP: "プロンプト"
+    human_description:
+      en_US: "The prompt for generating images"
+      zh_Hans: "生成图像的提示词"
+      pt_BR: "O prompt para gerar imagens"
+      ja_JP: "画像を生成するためのプロンプト"
+    llm_description: "The prompt for generating images"
+    form: "llm"
+  - name: "negative_prompt"
+    type: "string"
+    required: false
+    label:
+      en_US: "Negative Prompt"
+      zh_Hans: "负面提示词"
+      pt_BR: "Prompt Negativo"
+      ja_JP: "ネガティブプロンプト"
+    human_description:
+      en_US: "Negative prompt to exclude unwanted elements"
+      zh_Hans: "负面提示词，用于排除不想要的元素"
+    form: "llm"
+  - name: "image_url"
+    type: "string"
+    required: false
+    label:
+      en_US: "Image URL"
+      zh_Hans: "图像URL"
+      pt_BR: "URL da Imagem"
+      ja_JP: "画像URL"
+    human_description:
+      en_US: "The original image URL for image-to-image tasks"
+      zh_Hans: "图生图时的原始图像URL"
+      pt_BR: "A URL da imagem original para tarefas de imagem para imagem"
+      ja_JP: "画像から画像のタスクの元の画像URL"
+    llm_description: "The original image URL for image-to-image tasks"
+    form: "llm"
+  - name: "width"
+    type: "number"
+    required: false
+    default: 512
+    label:
+      en_US: "Width"
+      zh_Hans: "宽度"
+      pt_BR: "Largura"
+      ja_JP: "幅"
+    human_description:
+      en_US: "The width of the generated image"
+      zh_Hans: "生成图像的宽度"
+    form: "llm"
+  - name: "height"
+    type: "number"
+    required: false
+    default: 512
+    label:
+      en_US: "Height"
+      zh_Hans: "高度"
+      pt_BR: "Altura"
+      ja_JP: "高さ"
+    human_description:
+      en_US: "The height of the generated image"
+      zh_Hans: "生成图像的高度"
+    form: "llm"
+  - name: "steps"
+    type: "number"
+    required: false
+    default: 20
+    label:
+      en_US: "Steps"
+      zh_Hans: "步数"
+      pt_BR: "Passos"
+      ja_JP: "ステップ数"
+    human_description:
+      en_US: "The number of steps for generating images"
+      zh_Hans: "生成图像的步数"
+    form: "llm"
+  - name: "cfg_scale"
+    type: "number"
+    required: false
+    default: 7.5
+    label:
+      en_US: "CFG Scale"
+      zh_Hans: "引导强度"
+      pt_BR: "Escala CFG"
+      ja_JP: "CFGスケール"
+    human_description:
+      en_US: "The guidance scale for the prompt"
+      zh_Hans: "提示词的引导强度"
+    form: "llm"
+  - name: "seed"
+    type: "number"
+    required: false
+    label:
+      en_US: "Seed"
+      zh_Hans: "随机种子"
+      pt_BR: "Semente"
+      ja_JP: "シード"
+    human_description:
+      en_US: "The random seed for generating reproducible images"
+      zh_Hans: "随机种子，用于生成可复现的图像"
+    form: "llm"
+  - name: "n"
+    type: "number"
+    required: false
+    default: 1
+    label:
+      en_US: "Number of Images"
+      zh_Hans: "图像数量"
+      pt_BR: "Número de Imagens"
+      ja_JP: "画像数"
+    human_description:
+      en_US: "The number of images to generate"
+      zh_Hans: "生成图像的数量"
+    form: "llm"
+extra:
+  python:
+    source: tools/image_generator.py

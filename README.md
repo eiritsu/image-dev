@@ -203,9 +203,7 @@ MIT License
 
 Contributions are welcome! Feel free to submit Issues and Pull Requests.
 
-## 联系方式
-
 ### Contact
 
-- 项目地址：https://github.com/dify-plugins/third-party-ai-image-generator
-- 作者：Dify Plugin Developer
+- 项目地址：https://github.com/eiritsu/image-dev
+- 作者：eiritsu
